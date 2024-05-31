@@ -45,7 +45,7 @@ CREATE TABLE "Order" (
 CREATE TABLE Order_Item (
     order_id INT,
     item_id INT,
-    cantidad INT NOT NULL,
+    cantidad DECIMAL(10, 2) NOT NULL,
     PRIMARY KEY (order_id, item_id),
     FOREIGN KEY (order_id) REFERENCES "Order"(ID),
     FOREIGN KEY (item_id) REFERENCES Item(ID)

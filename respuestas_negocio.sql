@@ -62,7 +62,6 @@ BEGIN
     DECLARE current_date DATE;
     SET current_date = CURDATE();
 
-    -- Insertar o actualizar el historial de los ítems al final del día
     INSERT INTO ItemHistory (item_id, fecha, precio, estado)
     SELECT 
         i.id AS item_id,
@@ -78,7 +77,7 @@ END //
 DELIMITER ;
 
 
--- Crear evento
+-- 3. Crear evento
 CREATE EVENT UpdateItemHistoryDaily
 ON SCHEDULE EVERY 1 DAY
 STARTS (CURRENT_DATE + INTERVAL 1 DAY)
